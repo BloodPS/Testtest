@@ -30,6 +30,9 @@ model.fit(X_train, y_train)
 with open('model.pkl', 'wb') as file:
     pickle.dump(model, file)
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 app = Flask(__name__)
 CORS(app)
