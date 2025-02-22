@@ -80,6 +80,10 @@ def predict():
         'claims_severity': claims_severity
     })
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     print(f"Starting the app on port {port}")  # เพิ่มข้อความ log
