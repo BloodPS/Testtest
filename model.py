@@ -30,15 +30,17 @@ model.fit(X_train, y_train)
 with open('model.pkl', 'wb') as file:
     pickle.dump(model, file)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+
 
 app = Flask(__name__)
 CORS(app)
 
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
