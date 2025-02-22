@@ -38,10 +38,6 @@ CORS(app)
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
